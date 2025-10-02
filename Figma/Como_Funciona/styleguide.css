@@ -1,0 +1,84 @@
+:root {
+  --background: rgba(247, 244, 255, 1);
+  --body-normal-font-family: "Inter", Helvetica;
+  --body-normal-font-size: 16px;
+  --body-normal-font-style: normal;
+  --body-normal-font-weight: 400;
+  --body-normal-letter-spacing: 0px;
+  --body-normal-line-height: 24px;
+  --border: rgba(228, 228, 228, 1);
+  --colors-miscellaneous-segmented-control-selected-fill: rgba(255, 255, 255, 1);
+  --customprimary: rgba(63, 81, 181, 1);
+  --dark: rgba(11, 0, 43, 1);
+  --gray-3: rgba(130, 130, 130, 1);
+  --heading-2-font-family: "Manrope", Helvetica;
+  --heading-2-font-size: 56px;
+  --heading-2-font-style: normal;
+  --heading-2-font-weight: 500;
+  --heading-2-letter-spacing: 0.56px;
+  --heading-2-line-height: 64px;
+  --heading-6-font-family: "Manrope", Helvetica;
+  --heading-6-font-size: 24px;
+  --heading-6-font-style: normal;
+  --heading-6-font-weight: 700;
+  --heading-6-letter-spacing: 0px;
+  --heading-6-line-height: 32px;
+  --heading-label-font-family: "Inter", Helvetica;
+  --heading-label-font-size: 14px;
+  --heading-label-font-style: normal;
+  --heading-label-font-weight: 600;
+  --heading-label-letter-spacing: 0.7px;
+  --heading-label-line-height: 24px;
+  --heading-subtitle-font-family: "Inter", Helvetica;
+  --heading-subtitle-font-size: 18px;
+  --heading-subtitle-font-style: normal;
+  --heading-subtitle-font-weight: 600;
+  --heading-subtitle-letter-spacing: 0px;
+  --heading-subtitle-line-height: 26px;
+  --heading-title-font-family: "Manrope", Helvetica;
+  --heading-title-font-size: 20px;
+  --heading-title-font-style: normal;
+  --heading-title-font-weight: 700;
+  --heading-title-letter-spacing: 0px;
+  --heading-title-line-height: 28px;
+  --link-normal-font-family: "Inter", Helvetica;
+  --link-normal-font-size: 16px;
+  --link-normal-font-style: normal;
+  --link-normal-font-weight: 600;
+  --link-normal-letter-spacing: 0.16px;
+  --link-normal-line-height: 24px;
+  --primary: rgba(89, 41, 235, 1);
+  --secondary: rgba(244, 157, 45, 1);
+  --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --text: rgba(109, 109, 109, 1);
+  --white: rgba(255, 255, 255, 1);
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-colors-mode="light">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-colors-mode="light"] {
+  --colors-miscellaneous-segmented-control-selected-fill: rgba(255, 255, 255, 1);
+}
+
+[data-colors-mode="dark"] {
+  --colors-miscellaneous-segmented-control-selected-fill: rgba(108, 108, 113, 1);
+}
+
+[data-colors-mode="IC-light"] {
+  --colors-miscellaneous-segmented-control-selected-fill: rgba(255, 255, 255, 1);
+}
+
+[data-colors-mode="IC-dark"] {
+  --colors-miscellaneous-segmented-control-selected-fill: rgba(108, 108, 113, 1);
+}
+
