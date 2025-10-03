@@ -1,0 +1,89 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+.factura {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 1000px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #f2f2f2;
+}
+
+.total {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-crear {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-editar {
+  background: #ffc107;
+  color: #000;
+}
+
+.btn-eliminar {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-pagar {
+  background: #28a745;
+  color: #fff;
+  padding: 10px 16px;
+  margin-left: 8px;
+  border-radius: 6px;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.small-input {
+  width: 70px;
+}
+
+.actions-forms {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}

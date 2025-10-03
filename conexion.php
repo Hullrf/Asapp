@@ -4,9 +4,6 @@ $username = "root";
 $password = "";
 $dbname = "asapp_negocios";
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
 // Verificar conexión
 try {
     $conn = new mysqli($servername, $username, $password, $dbname);
