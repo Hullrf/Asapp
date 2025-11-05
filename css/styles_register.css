@@ -1,48 +1,63 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  background: #5d3a6b;
   padding: 20px;
 }
 form {
-  background: #fff;
-  padding: 20px;
+  max-width: 420px;
+  margin: 50px auto;
+  background: #752d6c;
+  padding: 25px;
   border-radius: 8px;
-  width: 400px;
-  margin: auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 label {
   display: block;
   margin-top: 10px;
-  font-weight: bold;
+  font-weight: 600;
 }
 input,
 select,
 button {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-button {
-  background: #28a745;
-  color: #fff;
-  font-weight: bold;
+  background-color: #ddaf0a;
+  border: none;
+  color: #964c9e;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
   cursor: pointer;
-  margin-top: 15px;
+  font-weight: bold;
+  border: 1px solid #964c9e;
 }
+
 button:hover {
-  background: #218838;
+  background-color: #ddaf0a;
 }
-#negocioFields {
+negocioFields {
   display: none;
   margin-top: 15px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #964c9e;
   border-radius: 5px;
-  background: #f1f1f1;
+  background: #964c9e;
 }
-h2,p{
-    text-align: center;
+h2,
+p {
+  text-align: center;
+}
+error-text {
+  color: #d32f2f;
+  font-size: 0.9em;
+  margin-top: 4px;
+  display: block;
+}
+success {
+  color: #ddaf0a;
+  background: #964c9e;
+  border: 1px solid #ddaf0a;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 15px;
 }

@@ -71,6 +71,47 @@ $stmt->bind_param("i", $id_negocio);
 $stmt->execute();
 $resProductos = $stmt->get_result();
 
+
+
+// Crear Pedido
+if (isset($_POST['crear_pedido'])) {
+    $id_negocio = $_SESSION['id_negocio'];
+    $productos = $_POST['productos'] ?? [];
+    $cantidades = $_POST['cantidades'] ?? [];
+
+    if (empty($productos)) {
+        echo "<p style='color:red;'>⚠️ No se seleccionó ningún producto.</p>";
+    } else {
+        // Generar código QR único
+        $codigo_qr = 'QR' . strtoupper(substr(md5(uniqid()), 0, 6));
+
+        // Crear el pedido principal
+        $sqlPedido = "INSERT INTO pedidos (id_negocio, codigo_qr, estado) VALUES (?, ?, 'Pendiente')";
+        $stmt = $conn->prepare($sqlPedido);
+        $stmt->bind_param("is", $id_negocio, $codigo_qr);
+        $stmt->execute();
+        $id_pedido = $stmt->insert_id;
+
+        // Insertar productos seleccionados
+        foreach ($productos as $id_producto) {
+            $cantidad = intval($cantidades[$id_producto]) ?: 1;
+
+            $result = $conn->query("SELECT precio FROM productos WHERE id_producto = $id_producto");
+            if ($row = $result->fetch_assoc()) {
+                $precio_unitario = $row['precio'];
+                $subtotal = $precio_unitario * $cantidad;
+
+                $sqlItem = "INSERT INTO items_pedido (id_pedido, id_producto, cantidad, precio_unitario, subtotal, estado)
+                            VALUES (?, ?, ?, ?, ?, 'Pendiente')";
+                $stmtItem = $conn->prepare($sqlItem);
+                $stmtItem->bind_param("iiidd", $id_pedido, $id_producto, $cantidad, $precio_unitario, $subtotal);
+                $stmtItem->execute();
+            }
+        }
+
+        echo "<p style='color:green;'>✅ Pedido creado correctamente con código QR: $codigo_qr</p>";
+    }
+}
 // Renderizar vista
 include 'panel_control_view.html';
 $conn->close();
