@@ -82,7 +82,8 @@ if ($user['rol'] === 'cliente') {
     }
 
     // Redirigir a factura
-    header("Location: factura.php");
+    header("Location: factura.php?id_pedido=" . $_SESSION['id_pedido']);
+
     exit();
 }
 }

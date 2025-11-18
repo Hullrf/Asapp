@@ -124,7 +124,7 @@ $row = $res->fetch_assoc();
 $pedido_pagado = ($row['pendientes'] == 0);
 $stmt->close();
 
-include 'factura_view.html';
+include 'factura_view.php';
 
 ?>
 

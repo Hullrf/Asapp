@@ -51,17 +51,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editar'])) {
     exit;
 }
 
+
+
 // DELETE
 if (isset($_GET['delete'])) {
     $id_producto = intval($_GET['delete']);
-    $sql = "DELETE FROM productos WHERE id_producto=? AND id_negocio=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $id_producto, $id_negocio);
-    $stmt->execute();
-    header("Location: panel_control.php");
-    exit;
-}
 
+    // Verificar si el producto está referenciado en items_pedido
+    $checkStmt = $conn->prepare("SELECT COUNT(*) AS total FROM items_pedido WHERE id_producto = ?");
+    $checkStmt->bind_param("i", $id_producto);
+    $checkStmt->execute();
+    $totalResult = $checkStmt->get_result()->fetch_assoc()['total'];
+
+    if ($totalResult > 0) {
+        echo "<script>
+                alert('❌ No se puede eliminar este producto porque está incluido en una o más facturas.');
+                window.location.href = 'panel_control.php';
+              </script>";
+        exit();
+    }
+
+    // Si no está referenciado, eliminar normalmente
+    $stmt = $conn->prepare("DELETE FROM productos WHERE id_producto = ?");
+    $stmt->bind_param("i", $id_producto);
+    $stmt->execute();
+
+    header("Location: panel_control.php");
+    exit();
+}
 // ====================
 // LISTAR PRODUCTOS
 // ====================
@@ -113,6 +130,6 @@ if (isset($_POST['crear_pedido'])) {
     }
 }
 // Renderizar vista
-include 'panel_control_view.html';
+include 'panel_control_view.php';
 $conn->close();
 ?>

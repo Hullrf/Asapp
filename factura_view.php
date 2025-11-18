@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="css/styles_factura.css">
 </head>
 
+
+
 <body>
+    <div style="text-align:right;">
+    <a href="logout.php" class="btn-logout" style="
+        color: #fff;
+        background-color: #d9534f;
+        padding: 8px 12px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+    ">Cerrar sesión</a>
+    </div>
+
     <div class="factura">
         <h2><?php echo htmlspecialchars($pedido['negocio']); ?></h2>
         <!-- INFORMACIÓN DEL NEGOCIO -->

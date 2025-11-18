@@ -65,5 +65,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: register.html?success=1");
     exit();
 }
-include "register.html";
+include "register_view.php";
 ?>
