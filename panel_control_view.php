@@ -9,6 +9,19 @@
 
 <body>
 
+  <?php if (!empty($message)): ?>
+    <div style="
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        background-color: <?= strpos($message, '❌') !== false ? '#f8d7da' : '#d4edda' ?>;
+        color: <?= strpos($message, '❌') !== false ? '#721c24' : '#155724' ?>;
+        border: 1px solid <?= strpos($message, '❌') !== false ? '#f5c6cb' : '#c3e6cb' ?>;
+    ">
+      <?= $message ?>
+    </div>
+  <?php endif; ?>
+
   <div style="text-align:right;">
     <a href="logout.php" class="btn-logout" style="
         color: #fff;

@@ -3,7 +3,7 @@ include 'conexion.php';
 session_start();
 
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
-    header("Location: login_view.html");
+    header("Location: login_view.php");
     exit();
 }
 
